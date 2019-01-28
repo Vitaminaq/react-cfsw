@@ -1,50 +1,44 @@
-import React, { Component } from 'react';
+import React, { Component, Props } from 'react';
 import { connect } from "react-redux";
 import { getArtic } from "../store/modules/chatroom/action";
-import { Link } from 'react-router-dom';
+import LogoHeader from '../components/header/logo-header';
+import Footer from '../components/footer/footer';
+import ArticList from '../components/chat-room/artic-list'
 
-interface ChatRoomState {
-  input: string | number;
+interface ChatRoomProps extends Props<any> {
+  getArtic: any;
+  list: Array<API.ChatRoom.ArticList.ListItem>
+  location: any;
 }
 
-class ChatRoom extends Component {
-  constructor(props: any) {
+class ChatRoom extends Component<ChatRoomProps> {
+  constructor(props: ChatRoomProps) {
     super(props);
   }
   componentDidMount() {
-    const params = {
+    const params:API.ChatRoom.ArticList.RequestParams = {
       limit: 9,
 			page: 0
     };
-    (this as any).props.getArtic(params);
+    this.props.getArtic(params);
   }
   render() {
     return (
       <div>
-        {/* <input
-          onChange={e => this.updateInput(e.target.value)}
-          value={(this as any).state.input}
-        />
-        <button className="add-todo" onClick={this.handleAddTodo}>
-          Add Todo
-        </button>
-        <button className="add-todo" onClick={this.toggleTodo.bind(this)}>
-        toggleTodo
-        </button>
-        <Link to="/login">
-          <button className="login">
-            去登陆
-          </button>
-        </Link>
-        <div>{(this as any).props.todos}</div> */}
+        <LogoHeader />
+        <ArticList list={[...this.props.list] || []}/>
+        <Footer pathName={this.props.location.pathname || ''} />
       </div>
     );
   }
 }
 
-const mapStateToProps = (state: any) => {
-  console.log(state);
-  return { todos: state.todos };
+interface ChatRoomState {
+  getArticList: Array<API.ChatRoom.ArticList.ListItem>;
+}
+
+const mapStateToProps = (state: ChatRoomState) => {
+  return { list: state.getArticList };
 };
 export default connect(
   mapStateToProps,
