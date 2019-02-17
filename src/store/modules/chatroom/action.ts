@@ -17,6 +17,12 @@ export const assignParams = (
 export const getArtic = (params: API.ChatRoom.ArticList.RequestParams) => {
     return async (dispatch: any) => {
         const res = await api.getArtic(params);
+        if (res.code === 0 && res.data && Array.isArray(res.data.list)) {
+            dispatch({
+                type: GETARTICDATA,
+                list: res.data.list
+            })
+        }
         return dispatch({
             type: GETARTICDATA,
             list: res.data.list || []
