@@ -8,3 +8,6 @@ export const ADDPAGE = 'ADDPAGE';
 export const PULLDOWN = 'PULLDOWN';
 // 上拉加载
 export const PULLUP = 'PULLUP';
+// 请求状态
+export const PULLUPREQUESTSTATUS = 'PULLUPREQUESTSTATUS';
+export const PULLSTART = 'PULLSTART';

@@ -1,47 +1,73 @@
-import { GETARTICDATA, ASSIGNPARAMS, ADDPAGE } from './action-type';
+import { 
+    ASSIGNPARAMS,
+    PULLUP,
+    PULLDOWN,
+    PULLUPREQUESTSTATUS
+} from './action-type';
 
+export interface BaseParams {
+	limit: number;
+	page: number;
+}
+export type BaseRequestStatus =
+	| 'unrequest'
+	| 'requesting'
+	| 'success'
+	| 'error'
+	| 'done';
+export interface BaseArticListState {
+	params: BaseParams;
+	list: Array<API.ChatRoom.ArticList.ListItem>;
+	pullDownStatus: BaseRequestStatus;
+	pullUpStatus: BaseRequestStatus;
+}
 export interface ListParamsAction {
     type: string;
     params: API.ChatRoom.ArticList.RequestParams;
 }
-export interface ArticListAction {
+export interface BaseListAction extends BaseArticListState {
     type: string;
-    list: Array<API.ChatRoom.ArticList.ListItem>;
 }
 
-const ListParamsState: API.ChatRoom.ArticList.RequestParams = {
-    limit: 9,
-    page: 0
-}
-
-// 合并请求参数
-export const listParams = (
-    state: API.ChatRoom.ArticList.RequestParams = ListParamsState,
-    action: ListParamsAction
-): API.ChatRoom.ArticList.RequestParams =>
-{
-    switch(action.type) {
-        case ADDPAGE:
-            return {
-                limit: action.params.limit,
-                page: action.params.page++
-            };
-        case ASSIGNPARAMS:
-            return action.params;
-        default:
-            return state;
-    }
+const baseState: BaseArticListState = {
+    params: {
+        limit: 9,
+        page: 0
+    },
+    list: [],
+    pullDownStatus: 'unrequest',
+    pullUpStatus: 'unrequest'
 }
 
 // 文章列表state
-export const getArticList = (
-    state: Array<API.ChatRoom.ArticList.ListItem> = [],
-    action: ArticListAction
-): Array<API.ChatRoom.ArticList.ListItem> => {
-    console.log(state, action);
+export const articListState = (
+    state: BaseArticListState = baseState,
+    action: BaseListAction
+): BaseArticListState => {
     switch(action.type) {
-        case GETARTICDATA: 
-            return [...action.list];
+        // 合并页面参数
+        case ASSIGNPARAMS:
+            Object.assign(state.params, action.params);
+            return state;
+        // 更新上拉请求状态
+        case PULLUPREQUESTSTATUS:
+            state.pullUpStatus = action.pullUpStatus;
+            return state;
+        // 上拉加载
+        case PULLUP:
+            if (action.list.length < state.params.limit) {
+                state.pullUpStatus = 'done';
+            } else {
+                state.pullUpStatus = 'success';
+            }
+            state.list.push(...action.list);
+            state.params.page++
+            return state;
+        // 下拉刷新
+        case PULLDOWN:
+            state.list = [...action.list];
+            state.params.page = 0;
+            return state;
         default: 
             return state;
     }
