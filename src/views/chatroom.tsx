@@ -1,4 +1,4 @@
-import React, { Component, Props } from 'react';
+import React, { PureComponent, Props } from 'react';
 import { connect } from "react-redux";
 import { pullUp } from "../store/modules/chatroom/action";
 import { BaseArticListState } from "../store/modules/chatroom/reducer";
@@ -13,28 +13,28 @@ interface ChatRoomProps extends Props<any> {
     location: any;
 }
 
-class ChatRoom extends Component<ChatRoomProps> {
+class ChatRoom extends PureComponent<ChatRoomProps> {
     constructor(props: ChatRoomProps) {
         super(props);
     }
-    componentDidMount() {
-        const { articListState, pullUp } = this.props;
-        pullUp(articListState.params);
+    pullUp() {
+        this.props.pullUp();
     }
     render() {
         const { articListState, location, pullUp } = this.props;
-        const { list, pullDownStatus, pullUpStatus } = articListState;
+        const { pullDownStatus, pullUpStatus } = articListState;
         return (
             <div>
                 <LogoHeader />
                 <Scroller
                     pullDownStatus={pullDownStatus}
                     pullUpStatus={pullUpStatus}
-                    listDom={<ArticList list={[...list]}/>}
+                    listDom={<ArticList />}
                     pullUp={pullUp}
                     params={articListState.params}
                 />
                 <Footer pathName={location.pathname || ''} />
+                {/* <style jsx></style> */}
             </div>
         );
     }

@@ -48,11 +48,11 @@ export const articListState = (
         // 合并页面参数
         case ASSIGNPARAMS:
             Object.assign(state.params, action.params);
-            return state;
+            return {...state};
         // 更新上拉请求状态
         case PULLUPREQUESTSTATUS:
             state.pullUpStatus = action.pullUpStatus;
-            return state;
+            return {...state};
         // 上拉加载
         case PULLUP:
             if (action.list.length < state.params.limit) {
@@ -62,12 +62,23 @@ export const articListState = (
             }
             state.list.push(...action.list);
             state.params.page++
-            return state;
+            // 解构触发视图更新
+            return {
+                params: state.params,
+                list: [...state.list],
+                pullDownStatus: state.pullDownStatus,
+                pullUpStatus: state.pullUpStatus
+            };
         // 下拉刷新
         case PULLDOWN:
             state.list = [...action.list];
             state.params.page = 0;
-            return state;
+            return {
+                params: state.params,
+                list: [...state.list],
+                pullDownStatus: state.pullDownStatus,
+                pullUpStatus: state.pullUpStatus
+            };
         default: 
             return state;
     }

@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import '../../style/components/artic-list.scss';
 import config from '../../config';
 import { Time } from '../../common/comjs'
+import { BaseArticListState } from "../../store/modules/chatroom/reducer";
 
 interface ArticListProps {
-    list: Array<API.ChatRoom.ArticList.ListItem>
+    articList: Array<API.ChatRoom.ArticList.ListItem>;
 }
 
 class ArticList extends Component<ArticListProps, any> {
@@ -13,11 +15,11 @@ class ArticList extends Component<ArticListProps, any> {
         super(props);
     }
     render() {
-        const { list } = this.props;
+        const { articList } = this.props;
         return (
             <ul className="component-artic-list">
             {
-                list.map((i: API.ChatRoom.ArticList.ListItem) => {
+                articList.map((i: API.ChatRoom.ArticList.ListItem) => {
                     return <li key={i.articId}>
                         <Link to='/artic/detail'>
                             <div className="artic-content">
@@ -47,8 +49,19 @@ class ArticList extends Component<ArticListProps, any> {
                     </li>
                 })
             }
-            </ul>)
+        </ul>)
     }
 }
 
-export default ArticList;
+interface ArticListState {
+    articListState: BaseArticListState
+}
+const mapStateToProps = (state: ArticListState) => {
+    return {
+        articList: state.articListState.list
+    };
+};
+export default connect(
+    mapStateToProps,
+    {}
+)(ArticList);

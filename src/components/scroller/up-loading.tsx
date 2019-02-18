@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BaseRequestStatus } from "../../store/modules/chatroom/reducer";
 import inview from './inview';
 
+React.PureComponent
 /**
  * 加载的几种状态
  * 未加载   unrequest
