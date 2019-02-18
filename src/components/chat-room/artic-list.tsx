@@ -13,10 +13,11 @@ class ArticList extends Component<ArticListProps, any> {
         super(props);
     }
     render() {
+        const { list } = this.props;
         return (
             <ul className="component-artic-list">
             {
-                this.props.list.map((i: API.ChatRoom.ArticList.ListItem) => {
+                list.map((i: API.ChatRoom.ArticList.ListItem) => {
                     return <li key={i.articId}>
                         <Link to='/artic/detail'>
                             <div className="artic-content">

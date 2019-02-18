@@ -7,10 +7,11 @@ class Publish extends Component<any, any> {
     super(props);
   }
   render() {
+    const { location } = this.props;
     return (
       <div>
         <LogoHeader />
-        <Footer pathName={this.props.location.pathname || ''} />
+        <Footer pathName={location.pathname || ''} />
       </div>
     );
   }

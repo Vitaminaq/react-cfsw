@@ -23,11 +23,12 @@ class ChatRoom extends Component<ChatRoomProps> {
     this.props.getArtic(params);
   }
   render() {
+    const { location, list } = this.props;
     return (
       <div>
         <LogoHeader />
-        <ArticList list={[...this.props.list] || []}/>
-        <Footer pathName={this.props.location.pathname || ''} />
+        <ArticList list={[...list] || []}/>
+        <Footer pathName={location.pathname || ''} />
       </div>
     );
   }
