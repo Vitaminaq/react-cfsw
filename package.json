@@ -26,6 +26,11 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
   "eslintConfig": {
     "extends": "react-app"
   },
