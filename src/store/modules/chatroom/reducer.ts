@@ -2,10 +2,12 @@ import {
     ASSIGNPARAMS,
     PULLUP,
     PULLDOWN,
-    PULLUPREQUESTSTATUS
+    PULLUPREQUESTSTATUS,
+    SAVEVIEWSUCCESS,
+    SAVEVIEWFAIl
 } from './action-type';
 
-export interface BaseParams {
+export interface BaseListParams {
 	limit: number;
 	page: number;
 }
@@ -16,7 +18,7 @@ export type BaseRequestStatus =
 	| 'error'
 	| 'done';
 export interface BaseArticListState {
-	params: BaseParams;
+	params: BaseListParams;
 	list: Array<API.ChatRoom.ArticList.ListItem>;
 	pullDownStatus: BaseRequestStatus;
 	pullUpStatus: BaseRequestStatus;
@@ -39,7 +41,9 @@ const baseState: BaseArticListState = {
     pullUpStatus: 'unrequest'
 }
 
-// 文章列表state
+/**
+ * 文章列表state 
+ */
 export const articListState = (
     state: BaseArticListState = baseState,
     action: BaseListAction
@@ -71,8 +75,14 @@ export const articListState = (
             };
         // 下拉刷新
         case PULLDOWN:
+            if (action.list.length < state.params.limit) {
+                state.pullUpStatus = 'done';
+                state.pullDownStatus = 'done';
+            } else {
+                state.pullDownStatus = 'success';
+            }
             state.list = [...action.list];
-            state.params.page = 0;
+            state.params.page++;
             return {
                 params: state.params,
                 list: [...state.list],
@@ -80,6 +90,40 @@ export const articListState = (
                 pullUpStatus: state.pullUpStatus
             };
         default: 
+            return state;
+    }
+}
+
+
+export interface ViewState {
+    data: string;
+    status: string
+}
+export interface ViewAction extends ViewState {
+    type: string;
+}
+const initViewState: ViewState = {
+    data: '',
+    status: ''
+}
+/**
+ * 浏览文章state 
+ */
+export const view = (
+    state: ViewState = initViewState, action: ViewAction
+): ViewState => {
+    switch(action.type) {
+        case SAVEVIEWSUCCESS:
+            return {
+                data: action.data,
+                status: 'success'
+            };
+        case SAVEVIEWFAIl:
+            return {
+                data: action.data,
+                status: 'error'
+            }
+        default:
             return state;
     }
 }

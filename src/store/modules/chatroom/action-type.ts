@@ -1,13 +1,14 @@
-// 获取文章列表
-export const GETARTICDATA = 'GETARTICDATA';
 // 合并参数
 export const ASSIGNPARAMS = 'ASSIGNPARAMS';
-// 页面自增
-export const ADDPAGE = 'ADDPAGE';
 // 下拉刷新
 export const PULLDOWN = 'PULLDOWN';
+// 改变下拉请求状态
+export const PULLDOWNREQUESTSTATUS = 'PULLDOWNREQUESTSTATUS';
 // 上拉加载
 export const PULLUP = 'PULLUP';
-// 请求状态
+// 改变上拉请求状态
 export const PULLUPREQUESTSTATUS = 'PULLUPREQUESTSTATUS';
-export const PULLSTART = 'PULLSTART';
+// 保存成功
+export const SAVEVIEWSUCCESS = 'SAVEVIEWSUCCESS';
+// 保存失败
+export const SAVEVIEWFAIl = 'SAVEVIEWFAIl';

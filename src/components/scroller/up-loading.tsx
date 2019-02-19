@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BaseRequestStatus } from "../../store/modules/chatroom/reducer";
 import inview from './inview';
+import '../../style/components/scroller.scss';
 
 React.PureComponent
 /**

@@ -13,6 +13,7 @@ interface ChatRoomProps extends Props<any> {
     location: any;
 }
 
+// PureComponent做了层浅比较，不用手动触发更新
 class ChatRoom extends PureComponent<ChatRoomProps> {
     constructor(props: ChatRoomProps) {
         super(props);
@@ -34,7 +35,6 @@ class ChatRoom extends PureComponent<ChatRoomProps> {
                     params={articListState.params}
                 />
                 <Footer pathName={location.pathname || ''} />
-                {/* <style jsx></style> */}
             </div>
         );
     }

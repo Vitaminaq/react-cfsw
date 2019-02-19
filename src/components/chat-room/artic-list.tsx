@@ -5,14 +5,22 @@ import '../../style/components/artic-list.scss';
 import config from '../../config';
 import { Time } from '../../common/comjs'
 import { BaseArticListState } from "../../store/modules/chatroom/reducer";
+import { saveView } from "../../store/modules/chatroom/action";
 
 interface ArticListProps {
+    saveView: any;
     articList: Array<API.ChatRoom.ArticList.ListItem>;
 }
 
+// activeClassName
 class ArticList extends Component<ArticListProps, any> {
     constructor(props: ArticListProps) {
         super(props);
+    }
+    toDetail = (event: any) => {
+        event.preventDefault();
+        console.log(this);
+        return;
     }
     render() {
         const { articList } = this.props;
@@ -21,7 +29,7 @@ class ArticList extends Component<ArticListProps, any> {
             {
                 articList.map((i: API.ChatRoom.ArticList.ListItem) => {
                     return <li key={i.articId}>
-                        <Link to='/artic/detail'>
+                        <Link onClick={this.toDetail} to='/artic/detail'>
                             <div className="artic-content">
                                 <div className="userImg">
                                     <img src={`${config.BASE_URL}${i.headimg}`}/>
@@ -63,5 +71,5 @@ const mapStateToProps = (state: ArticListState) => {
 };
 export default connect(
     mapStateToProps,
-    {}
+    { saveView }
 )(ArticList);
