@@ -8,12 +8,12 @@ import CenterMy from '../views/center/center-my';
 class BaseRouter extends Component {
     render() {
         return (
-            <Router>
+            <Router basename="/">
                 <Switch>
-                    <Route path="/" exact component={ChatRoom} />
-                    <Route path="/publish" exact component={Publish} />
-                    <Route path="/login" exact component={Login} />
-                    <Route path="/center/my" exact component={CenterMy} />
+                    <Route exact path="/" component={ChatRoom} />
+                    <Route exact path="/publish" component={Publish} />
+                    <Route exact path="/login" component={Login} />
+                    <Route exact path="/center/my" component={CenterMy} />
                 </Switch>
             </Router>
         );

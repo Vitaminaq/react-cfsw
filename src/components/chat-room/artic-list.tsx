@@ -17,10 +17,11 @@ class ArticList extends Component<ArticListProps, any> {
     constructor(props: ArticListProps) {
         super(props);
     }
-    toDetail = (event: any) => {
-        event.preventDefault();
-        console.log(this);
-        return;
+    toDetail = async(id:number):Promise<any> => {
+        const e:any = event || window.event;
+        e.preventDefault();
+        await this.props.saveView({id});
+        return this;
     }
     render() {
         const { articList } = this.props;
@@ -29,7 +30,7 @@ class ArticList extends Component<ArticListProps, any> {
             {
                 articList.map((i: API.ChatRoom.ArticList.ListItem) => {
                     return <li key={i.articId}>
-                        <Link onClick={this.toDetail} to='/artic/detail'>
+                        <Link className="list-dom" onClick={() => this.toDetail(i.articId)} to='#'>
                             <div className="artic-content">
                                 <div className="userImg">
                                     <img src={`${config.BASE_URL}${i.headimg}`}/>

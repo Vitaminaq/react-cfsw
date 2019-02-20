@@ -11,7 +11,7 @@ class Chatroom extends BaseAxios {
     saveView(params: API.ChatRoom.View.RequestParams)
        :Promise<API.ChatRoom.View.Response>
     {
-        return this.axios.get(`/api/user/view`, params);
+        return this.axios.post(`/api/user/view`, params);
     }
 }
 

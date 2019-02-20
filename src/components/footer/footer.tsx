@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import '../../style/components/footer.scss';
 
 interface ListItem {
@@ -43,7 +43,7 @@ class Footer extends Component<FooterProps, FooterState> {
             <footer className="nav-footer">
             {
                 this.state.list.map((i) => {
-                    return <Link 
+                    return <NavLink
                         to={i.pathName}
                         key={i.pathName}
                         className={i.pathName === this.props.pathName ? 'current' : 'no-current'}
@@ -54,7 +54,7 @@ class Footer extends Component<FooterProps, FooterState> {
                             alt="icon"
                         />
                         <div>{i.name}</div>
-                    </Link>
+                    </NavLink>
                 })
             }
             </footer>)

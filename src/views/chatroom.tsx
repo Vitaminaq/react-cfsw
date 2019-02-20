@@ -30,7 +30,7 @@ class ChatRoom extends PureComponent<ChatRoomProps> {
                 <Scroller
                     pullDownStatus={pullDownStatus}
                     pullUpStatus={pullUpStatus}
-                    listDom={<ArticList />}
+                    listDom={<ArticList/>}
                     pullUp={pullUp}
                     params={articListState.params}
                 />
