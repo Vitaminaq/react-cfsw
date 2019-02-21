@@ -11,18 +11,20 @@ interface ChatRoomProps extends Props<any> {
     pullUp: any;
     articListState: BaseArticListState;
     location: any;
+    history: History;
 }
 
 // PureComponent做了层浅比较，不用手动触发更新
 class ChatRoom extends PureComponent<ChatRoomProps> {
     constructor(props: ChatRoomProps) {
         super(props);
+        console.log(this);
     }
     pullUp() {
         this.props.pullUp();
     }
     render() {
-        const { articListState, location, pullUp } = this.props;
+        const { articListState, location, pullUp, history } = this.props;
         const { pullDownStatus, pullUpStatus } = articListState;
         return (
             <div>
@@ -30,7 +32,7 @@ class ChatRoom extends PureComponent<ChatRoomProps> {
                 <Scroller
                     pullDownStatus={pullDownStatus}
                     pullUpStatus={pullUpStatus}
-                    listDom={<ArticList/>}
+                    listDom={<ArticList history={history}/>}
                     pullUp={pullUp}
                     params={articListState.params}
                 />
