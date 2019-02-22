@@ -1,11 +1,4 @@
-import LocalAxios from '../common/axios';
-
-class BaseAxios {
-	axios: Axios;
-	constructor() {
-		this.axios = new Axios();
-	}
-}
+import LocalAxios from "../common/axios";
 
 class Axios extends LocalAxios {
 	post(url: string, params: any) {
@@ -13,6 +6,13 @@ class Axios extends LocalAxios {
 	}
 	get(url: string, params: any) {
 		return this.axios.get(url, { params });
+	}
+}
+
+class BaseAxios {
+	axios: Axios;
+	constructor() {
+		this.axios = new Axios();
 	}
 }
 export { BaseAxios, Axios };

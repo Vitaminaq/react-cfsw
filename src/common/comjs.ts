@@ -37,15 +37,15 @@ export const timestampToDateTime = (value: number) => {
 	const endTimeFormat = `${endTime.getFullYear()}-${
 		endTime.getMonth() + 1 >= 10
 			? endTime.getMonth() + 1
-			: '0' + (endTime.getMonth() + 1)
+			: "0" + (endTime.getMonth() + 1)
 	}-${
-		endTime.getDate() >= 10 ? endTime.getDate() : '0' + endTime.getDate()
+		endTime.getDate() >= 10 ? endTime.getDate() : "0" + endTime.getDate()
 	}  ${
-		endTime.getHours() >= 10 ? endTime.getHours() : '0' + endTime.getHours()
+		endTime.getHours() >= 10 ? endTime.getHours() : "0" + endTime.getHours()
 	}:${
 		endTime.getMinutes() >= 10
 			? endTime.getMinutes()
-			: '0' + endTime.getMinutes()
+			: "0" + endTime.getMinutes()
 	}`;
 	return endTimeFormat;
 };
@@ -58,26 +58,26 @@ export const timeFromNow = (str: number) => {
 	const endTime = new Date(str);
 	const time = new Date().getTime() - endTime.getTime(); // 现在的时间-传入的时间 = 相差的时间（单位 = 毫秒）
 	if (time < 0) {
-		return '';
+		return "";
 	} else if (time / 3600000 < 24) {
 		return `今天 ${
 			endTime.getHours() >= 10
 				? endTime.getHours()
-				: '0' + endTime.getHours()
+				: "0" + endTime.getHours()
 		}:${
 			endTime.getMinutes() >= 10
 				? endTime.getMinutes()
-				: '0' + endTime.getMinutes()
+				: "0" + endTime.getMinutes()
 		}`;
 	} else {
-		return `${formatDateToStr(str, 'MM')}-${formatDateToStr(str, 'DD')} ${
+		return `${formatDateToStr(str, "MM")}-${formatDateToStr(str, "DD")} ${
 			endTime.getHours() >= 10
 				? endTime.getHours()
-				: '0' + endTime.getHours()
+				: "0" + endTime.getHours()
 		}:${
 			endTime.getMinutes() >= 10
 				? endTime.getMinutes()
-				: '0' + endTime.getMinutes()
+				: "0" + endTime.getMinutes()
 		}`;
 	}
 };
@@ -90,7 +90,7 @@ export const Time = function(str: number | string) {
 	if (time < 0) {
 		return;
 	} else if (time / 1000 < 30) {
-		return '刚刚';
+		return "刚刚";
 	} else if (time / 1000 < 60) {
 		return `${(time / 1000).toFixed(0)}秒前`;
 	} else if (time / 60000 < 60) {

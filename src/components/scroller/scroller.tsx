@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { BaseRequestStatus } from "../../store/modules/chatroom/reducer";
-import UpLoading from './up-loading';
+import UpLoading from "./up-loading";
 
 /**
  * 加载的几种状态
@@ -12,31 +12,37 @@ import UpLoading from './up-loading';
  * 全部加载 done
  */
 interface ScrollerProps {
-    pullDownStatus: BaseRequestStatus;
-    pullUpStatus: BaseRequestStatus;
-    listDom: any;
-    pullUp: any;
-    params: any;
+	pullDownStatus: BaseRequestStatus;
+	pullUpStatus: BaseRequestStatus;
+	listDom: any;
+	pullUp: any;
+	params: any;
 }
 
 class Scroller extends Component<ScrollerProps, any> {
-    constructor(props: ScrollerProps) {
-        super(props);
-    }
-    render() {
-        const { pullUpStatus, pullDownStatus, listDom, pullUp, params } = this.props;
-        return (
-            <div>
-                { listDom }
-                <UpLoading
-                    pullDownStatus={pullDownStatus}
-                    pullUpStatus={pullUpStatus}
-                    pullUp={pullUp}
-                    params={params}
-                />
-            </div>
-        )
-    }
+	constructor(props: ScrollerProps) {
+		super(props);
+	}
+	render() {
+		const {
+			pullUpStatus,
+			pullDownStatus,
+			listDom,
+			pullUp,
+			params
+		} = this.props;
+		return (
+			<div>
+				{listDom}
+				<UpLoading
+					pullDownStatus={pullDownStatus}
+					pullUpStatus={pullUpStatus}
+					pullUp={pullUp}
+					params={params}
+				/>
+			</div>
+		);
+	}
 }
 
 export default Scroller;

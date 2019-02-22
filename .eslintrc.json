@@ -1,0 +1,10 @@
+{
+    "plugins": ["prettier"],
+    "extends": [
+        "typescript",
+        "typescript/react",
+        "typescript/prettier",
+        "react-app",
+        "plugin:prettier/recommended"
+    ]
+}

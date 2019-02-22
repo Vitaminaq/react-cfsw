@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import { BaseRequestStatus } from "../../store/modules/chatroom/reducer";
 
 /**
@@ -11,19 +11,17 @@ import { BaseRequestStatus } from "../../store/modules/chatroom/reducer";
  * 全部加载 done
  */
 interface ScrollerProps {
-    pullDownStatus: BaseRequestStatus;
-    pullUpStatus: BaseRequestStatus;
+	pullDownStatus: BaseRequestStatus;
+	pullUpStatus: BaseRequestStatus;
 }
 
 class DownLoading extends Component<any, any> {
-    constructor(props: ScrollerProps) {
-        super(props);
-    }
-    render() {
-        return (
-            <div>123</div>
-        )
-    }
+	constructor(props: ScrollerProps) {
+		super(props);
+	}
+	render() {
+		return <div>123</div>;
+	}
 }
 
 export default DownLoading;
