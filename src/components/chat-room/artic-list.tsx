@@ -1,8 +1,8 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import "../../style/components/artic-list.scss";
-import { BaseArticListState } from "../../store/modules/chatroom/reducer";
-import ArticListItem from "../../components/chat-room/artic-list-item";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import '../../style/components/artic-list.scss';
+import { BaseArticListState } from '../../store/modules/chatroom/reducer';
+import ArticListItem from '../../components/chat-room/artic-list-item';
 
 interface ArticListProps {
 	articList: API.ChatRoom.ArticList.ListItem[];

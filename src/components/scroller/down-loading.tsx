@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { BaseRequestStatus } from "../../store/modules/chatroom/reducer";
+import React, { Component } from 'react';
+import { BaseRequestStatus } from '../../store/modules/chatroom/reducer';
 
 /**
  * 加载的几种状态

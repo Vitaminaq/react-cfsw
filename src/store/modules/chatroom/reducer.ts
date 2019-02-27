@@ -5,18 +5,18 @@ import {
 	PULLUPREQUESTSTATUS,
 	SAVEVIEWSUCCESS,
 	SAVEVIEWFAIl
-} from "./action-type";
+} from './action-type';
 
 export interface BaseListParams {
 	limit: number;
 	page: number;
 }
 export type BaseRequestStatus =
-	| "unrequest"
-	| "requesting"
-	| "success"
-	| "error"
-	| "done";
+	| 'unrequest'
+	| 'requesting'
+	| 'success'
+	| 'error'
+	| 'done';
 export interface BaseArticListState {
 	params: BaseListParams;
 	list: API.ChatRoom.ArticList.ListItem[];
@@ -37,8 +37,8 @@ const baseState: BaseArticListState = {
 		page: 0
 	},
 	list: [],
-	pullDownStatus: "unrequest",
-	pullUpStatus: "unrequest"
+	pullDownStatus: 'unrequest',
+	pullUpStatus: 'unrequest'
 };
 
 /**
@@ -60,9 +60,9 @@ export const articListState = (
 		// 上拉加载
 		case PULLUP:
 			if (action.list.length < state.params.limit) {
-				state.pullUpStatus = "done";
+				state.pullUpStatus = 'done';
 			} else {
-				state.pullUpStatus = "success";
+				state.pullUpStatus = 'success';
 			}
 			state.list.push(...action.list);
 			state.params.page++;
@@ -76,10 +76,10 @@ export const articListState = (
 		// 下拉刷新
 		case PULLDOWN:
 			if (action.list.length < state.params.limit) {
-				state.pullUpStatus = "done";
-				state.pullDownStatus = "done";
+				state.pullUpStatus = 'done';
+				state.pullDownStatus = 'done';
 			} else {
-				state.pullDownStatus = "success";
+				state.pullDownStatus = 'success';
 			}
 			state.list = [...action.list];
 			state.params.page++;
@@ -102,8 +102,8 @@ export interface ViewAction extends ViewState {
 	type: string;
 }
 const initViewState: ViewState = {
-	data: "",
-	status: ""
+	data: '',
+	status: ''
 };
 /**
  * 浏览文章state
@@ -116,12 +116,12 @@ export const view = (
 		case SAVEVIEWSUCCESS:
 			return {
 				data: action.data,
-				status: "success"
+				status: 'success'
 			};
 		case SAVEVIEWFAIl:
 			return {
 				data: action.data,
-				status: "error"
+				status: 'error'
 			};
 		default:
 			return state;

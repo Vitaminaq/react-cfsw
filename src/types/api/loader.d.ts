@@ -27,9 +27,9 @@ declare namespace API.Loader {
 		pullUpStatus: RequestStatus;
 	}
 	export type RequestStatus =
-		| "unrequest"
-		| "requesting"
-		| "success"
-		| "error"
-		| "done";
+		| 'unrequest'
+		| 'requesting'
+		| 'success'
+		| 'error'
+		| 'done';
 }

@@ -1,27 +1,30 @@
-import axios from "axios";
-import config from "../config";
+import axios from 'axios';
+import config from '../config';
 
 class LocalAxios {
 	public axios: any;
-	constructor() {
+	public constructor() {
 		this.axios = axios.create({
 			baseURL: config.BASE_URL,
 			timeout: 5000,
 			withCredentials: true,
 			headers: {
-				"Content-Type": "application/json",
-				"Cache-Control": "no-cache"
+				'Content-Type': 'application/json',
+				'Cache-Control': 'no-cache'
 			}
 		});
 		this.onRequest();
 		this.onResponse();
 	}
 	private onRequest() {
-		this.axios.interceptors.request.use((config: any) => {
-			config.startTime = new Date().getTime();
-			console.log("拦截器生效");
-			return config;
-		});
+		this.axios.interceptors.request.use(
+			(config: any): any => {
+				config.startTime = new Date().getTime();
+				console.log('拦截器生效');
+				return config;
+			}
+		);
+		return this;
 	}
 	private onResponse() {
 		this.axios.interceptors.response.use(
@@ -38,7 +41,7 @@ class LocalAxios {
 				console.log(`错误信息 ${err.message}`);
 				err.data = {
 					code: -10000,
-					data: "网络出错"
+					data: '网络出错'
 				};
 				console.log(
 					`路由${err.config.url}请求失败，耗时${new Date().getTime() -

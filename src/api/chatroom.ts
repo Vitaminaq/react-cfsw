@@ -1,4 +1,4 @@
-import { BaseAxios } from "./index";
+import { BaseAxios } from './index';
 
 class Chatroom extends BaseAxios {
 	// 获取文章列表

@@ -1,22 +1,12 @@
 {
-  //保存时eslint自动修复错误
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    {
-      "language": "html",
-      "autoFix": true
-    },
-    {
-      "language": "typescript",
-      "autoFix": true
-    }
-  ],
-  // 使用项目配置规则
-  "eslint.options": {
-    "configFile": "./.eslintrc.json"
-  },
-  "eslint.autoFixOnSave": true,
-  // 点击保存时，根据 eslint 规则自定修复，同时集成 prettier 到 eslint 中
-  "prettier.eslintIntegration": true
+	"eslint.enable": true,
+	//保存时eslint自动修复错误
+	"eslint.validate": ["javascript", "javascriptreact", "typescriptreact"],
+	"eslint.options": {
+		"configFile": "./.eslintrc.json"
+	},
+	"eslint.autoFixOnSave": true,
+	"editor.formatOnSave": true,
+	// 点击保存时，根据 eslint 规则自定修复，同时集成 prettier 到 eslint 中
+	"prettier.eslintIntegration": true
 }

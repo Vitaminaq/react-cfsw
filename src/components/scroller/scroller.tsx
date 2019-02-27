@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { BaseRequestStatus } from "../../store/modules/chatroom/reducer";
-import UpLoading from "./up-loading";
+import React, { Component } from 'react';
+import { BaseRequestStatus } from '../../store/modules/chatroom/reducer';
+import UpLoading from './up-loading';
 
 /**
  * 加载的几种状态

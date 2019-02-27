@@ -6,8 +6,8 @@ import {
 	PULLDOWN,
 	SAVEVIEWSUCCESS,
 	SAVEVIEWFAIl
-} from "./action-type";
-import api from "../../../api/chatroom";
+} from './action-type';
+import api from '../../../api/chatroom';
 
 // 合并页面参数
 export const assignParams = (params: API.ChatRoom.ArticList.RequestParams) => {
@@ -23,7 +23,7 @@ export const pullUp = (params: API.ChatRoom.ArticList.RequestParams) => {
 	return async (dispatch: any) => {
 		dispatch({
 			type: PULLUPREQUESTSTATUS,
-			pullUpStatus: "requesting"
+			pullUpStatus: 'requesting'
 		});
 		const res = await api.getArtic(params);
 		if (
@@ -34,7 +34,7 @@ export const pullUp = (params: API.ChatRoom.ArticList.RequestParams) => {
 		)
 			return dispatch({
 				type: PULLUPREQUESTSTATUS,
-				pullUpStatus: "error"
+				pullUpStatus: 'error'
 			});
 		return dispatch({
 			type: PULLUP,
@@ -56,7 +56,7 @@ export const pullDown = () => {
 		});
 		dispatch({
 			type: PULLDOWNREQUESTSTATUS,
-			pullDownStatus: "requesting"
+			pullDownStatus: 'requesting'
 		});
 		const res = await api.getArtic(params);
 		if (
@@ -67,7 +67,7 @@ export const pullDown = () => {
 		)
 			return dispatch({
 				type: PULLUPREQUESTSTATUS,
-				pullDownStatus: "error"
+				pullDownStatus: 'error'
 			});
 		return dispatch({
 			type: PULLDOWN,

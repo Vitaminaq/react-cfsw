@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import "../../style/components/artic-list.scss";
-import config from "../../config";
-import { Time } from "../../common/comjs";
-import { saveView } from "../../store/modules/chatroom/action";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import '../../style/components/artic-list.scss';
+import config from '../../config';
+import { Time } from '../../common/comjs';
+import { saveView } from '../../store/modules/chatroom/action';
 
 interface ArticListItemProps {
 	saveView: any;
@@ -23,10 +23,10 @@ class ArticListItem extends Component<ArticListItemProps, any> {
 		const res: API.ChatRoom.View.Response = await this.props.saveView({
 			id: this.props.item.articId
 		});
-		if (res.data === "ok") {
-			this.props.history.push("artic/detail");
+		if (res.data === 'ok') {
+			this.props.history.push('artic/detail');
 		} else {
-			console.log("请求失败");
+			console.log('请求失败');
 		}
 		return this;
 	};
@@ -56,21 +56,21 @@ class ArticListItem extends Component<ArticListItemProps, any> {
 					<div className="oparatenum">
 						<div className="hasborder">
 							<img
-								src={require("./images/view.svg")}
+								src={require('./images/view.svg')}
 								alt="view"
 							/>
 							{item.viewnum}
 						</div>
 						<div className="hasborder">
 							<img
-								src={require("./images/comment.svg")}
+								src={require('./images/comment.svg')}
 								alt="comment"
-							/>{" "}
+							/>{' '}
 							{item.commentnum}
 						</div>
 						<div>
 							<img
-								src={require("./images/click.svg")}
+								src={require('./images/click.svg')}
 								alt="click"
 							/>
 							{item.clicknum}

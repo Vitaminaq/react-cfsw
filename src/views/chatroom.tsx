@@ -1,11 +1,11 @@
-import React, { PureComponent, Props } from "react";
-import { connect } from "react-redux";
-import { pullUp } from "../store/modules/chatroom/action";
-import { BaseArticListState } from "../store/modules/chatroom/reducer";
-import LogoHeader from "../components/header/logo-header";
-import Footer from "../components/footer/footer";
-import ArticList from "../components/chat-room/artic-list";
-import Scroller from "../components/scroller/scroller";
+import React, { PureComponent, Props } from 'react';
+import { connect } from 'react-redux';
+import { pullUp } from '../store/modules/chatroom/action';
+import { BaseArticListState } from '../store/modules/chatroom/reducer';
+import LogoHeader from '../components/header/logo-header';
+import Footer from '../components/footer/footer';
+import ArticList from '../components/chat-room/artic-list';
+import Scroller from '../components/scroller/scroller';
 
 interface ChatRoomProps extends Props<any> {
 	pullUp: any;
@@ -36,7 +36,7 @@ class ChatRoom extends PureComponent<ChatRoomProps> {
 					pullUp={pullUp}
 					params={articListState.params}
 				/>
-				<Footer pathName={location.pathname || ""} />
+				<Footer pathName={location.pathname || ''} />
 			</div>
 		);
 	}

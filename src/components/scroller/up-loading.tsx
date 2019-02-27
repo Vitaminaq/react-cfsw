@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { BaseRequestStatus } from "../../store/modules/chatroom/reducer";
-import inview from "./inview";
-import "../../style/components/scroller.scss";
+import React, { Component } from 'react';
+import { BaseRequestStatus } from '../../store/modules/chatroom/reducer';
+import inview from './inview';
+import '../../style/components/scroller.scss';
 
 React.PureComponent;
 /**
@@ -42,13 +42,13 @@ class UpLoading extends Component<UpLoadingProps, any> {
 		let isSee = inview(this.el.current, {});
 		if (
 			isSee &&
-			pullUpStatus !== "requesting" &&
-			pullUpStatus !== "done" &&
-			pullUpStatus !== "error"
+			pullUpStatus !== 'requesting' &&
+			pullUpStatus !== 'done' &&
+			pullUpStatus !== 'error'
 		) {
 			await pullUp(params);
 		}
-		if (pullUpStatus === "error") {
+		if (pullUpStatus === 'error') {
 			clearInterval(this.timer);
 		}
 	}
@@ -58,16 +58,16 @@ class UpLoading extends Component<UpLoadingProps, any> {
 	render() {
 		const { pullUpStatus } = this.props;
 		let dom = null;
-		if (pullUpStatus === "done") {
+		if (pullUpStatus === 'done') {
 			dom = <span>无更多数据</span>;
-		} else if (pullUpStatus === "error") {
+		} else if (pullUpStatus === 'error') {
 			dom = (
 				<span onClick={this.reload.bind(this)}>
 					加载失败，请点击重新加载
 				</span>
 			);
 		} else {
-			dom = <img src={require("./loading.gif")} alt="加载中..." />;
+			dom = <img src={require('./loading.gif')} alt="加载中..." />;
 		}
 		return (
 			<div id="seeLoading" className="see-loading" ref={this.el}>

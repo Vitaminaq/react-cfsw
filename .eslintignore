@@ -1,3 +1,5 @@
 node_modules/**
 src/.next/**
 dist/**
+src/serviceWorker.ts
+src/App.test.tsx

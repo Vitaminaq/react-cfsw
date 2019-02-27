@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-import "../../style/components/footer.scss";
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import '../../style/components/footer.scss';
 
 interface ListItem {
 	name: string;
@@ -22,22 +22,22 @@ class Footer extends Component<FooterProps, FooterState> {
 		this.state = {
 			list: [
 				{
-					name: "首页",
-					pathName: "/",
-					url: "./images/home.svg",
-					url_ed: "./images/home_ed.svg"
+					name: '首页',
+					pathName: '/',
+					url: './images/home.svg',
+					url_ed: './images/home_ed.svg'
 				},
 				{
-					name: "发表",
-					pathName: "/publish",
-					url: "./images/publish.svg",
-					url_ed: "./images/publish_ed.svg"
+					name: '发表',
+					pathName: '/publish',
+					url: './images/publish.svg',
+					url_ed: './images/publish_ed.svg'
 				},
 				{
-					name: "我的",
-					pathName: "/center/my",
-					url: "./images/my.svg",
-					url_ed: "./images/my_ed.svg"
+					name: '我的',
+					pathName: '/center/my',
+					url: './images/my.svg',
+					url_ed: './images/my_ed.svg'
 				}
 			]
 		};
@@ -52,8 +52,8 @@ class Footer extends Component<FooterProps, FooterState> {
 							key={i.pathName}
 							className={
 								i.pathName === this.props.pathName
-									? "current"
-									: "no-current"
+									? 'current'
+									: 'no-current'
 							}
 						>
 							<img

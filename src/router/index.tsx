@@ -1,10 +1,10 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Login from "../views/login";
-import ChatRoom from "../views/chatroom";
-import ArticDetail from "../views/artic/artic-detail";
-import Publish from "../views/publish";
-import CenterMy from "../views/center/center-my";
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Login from '../views/login';
+import ChatRoom from '../views/chatroom';
+import ArticDetail from '../views/artic/artic-detail';
+import Publish from '../views/publish';
+import CenterMy from '../views/center/center-my';
 
 class BaseRouter extends Component {
 	render() {

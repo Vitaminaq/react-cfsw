@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class Login extends Component {
-	render() {
+	public render() {
 		return <div className="login">1234</div>;
 	}
 }
