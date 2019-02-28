@@ -3,7 +3,7 @@ import LogoHeader from '../../components/header/logo-header';
 import Footer from '../../components/footer/footer';
 
 class CenterMy extends Component<any, any> {
-	render() {
+	public render() {
 		const { location } = this.props;
 		return (
 			<div>

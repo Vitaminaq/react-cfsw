@@ -1,6 +1,6 @@
 export default class BaseLoadData {
-	api: any;
-	constructor(api: any) {
+	public api: any;
+	public constructor(api: any) {
 		this.api = api;
 	}
 }
