@@ -1,4 +1,4 @@
-import React, { Component, Props } from 'react';
+import React, { Component } from 'react';
 import LogoHeader from '../../components/header/logo-header';
 import Footer from '../../components/footer/footer';
 

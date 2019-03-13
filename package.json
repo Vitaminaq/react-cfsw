@@ -18,7 +18,7 @@
 		"build": "react-scripts build",
 		"test": "react-scripts test",
 		"eject": "react-scripts eject",
-		"lint": "tsc && eslint . --ext .js,.ts,.tsx --fix"
+		"lint": "tsc && eslint . --ext .js,.ts,.jsx,.tsx --fix"
 	},
 	"config": {
 		"commitizen": {
@@ -39,7 +39,6 @@
 		"@types/react-redux": "^7.0.1",
 		"@types/react-router-dom": "^4.3.1",
 		"@typescript-eslint/eslint-plugin": "^1.4.0",
-		"eslint": "^5.14.1",
 		"eslint-config-prettier": "^4.0.0",
 		"eslint-config-typescript": "^2.0.0",
 		"eslint-plugin-prettier": "^3.0.1",

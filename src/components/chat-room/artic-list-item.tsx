@@ -14,10 +14,10 @@ interface ArticListItemProps {
 
 // activeClassName
 class ArticListItem extends Component<ArticListItemProps, any> {
-	constructor(props: ArticListItemProps) {
+	public constructor(props: ArticListItemProps) {
 		super(props);
 	}
-	toDetail = async (): Promise<any> => {
+	public toDetail = async (): Promise<any> => {
 		if (!event) return this;
 		event.preventDefault();
 		const res: API.ChatRoom.View.Response = await this.props.saveView({
@@ -30,7 +30,7 @@ class ArticListItem extends Component<ArticListItemProps, any> {
 		}
 		return this;
 	};
-	render() {
+	public render() {
 		const { item } = this.props;
 		return (
 			<li>

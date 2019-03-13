@@ -3,8 +3,7 @@
 		"experimentalDecorators": true,
 		"allowJs": true,
 		"allowSyntheticDefaultImports": true,
-		"baseUrl": "./src",
-		"jsx": "react",
+		"jsx": "preserve",
 		"lib": ["dom", "es2017"],
 		"module": "esnext",
 		"moduleResolution": "node",
@@ -20,8 +19,13 @@
 		"target": "esnext",
 		"types": ["react", "react-dom"],
 		"typeRoots": ["../types"],
-		"paths": {
-			"@src/*": ["./*"]
-		}
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"isolatedModules": true
+	},
+	"include": ["src"],
+	"baseUrl": ".",
+	"paths": {
+		"@src/*": ["src/*"]
 	}
 }

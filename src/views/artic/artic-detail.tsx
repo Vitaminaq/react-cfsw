@@ -11,10 +11,10 @@ interface ArticListProps {
 
 // activeClassName
 class ArticList extends Component<ArticListProps, any> {
-	constructor(props: ArticListProps) {
+	public constructor(props: ArticListProps) {
 		super(props);
 	}
-	render() {
+	public render() {
 		const { articList, history } = this.props;
 		return (
 			<ul className="component-artic-list">

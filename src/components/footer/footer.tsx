@@ -6,7 +6,7 @@ interface ListItem {
 	name: string;
 	pathName: string;
 	url: string;
-	url_ed: string;
+	urled: string;
 }
 interface FooterState {
 	list: ListItem[];
@@ -17,7 +17,7 @@ interface FooterProps {
 }
 
 class Footer extends Component<FooterProps, FooterState> {
-	constructor(props: FooterProps) {
+	public constructor(props: FooterProps) {
 		super(props);
 		this.state = {
 			list: [
@@ -25,24 +25,24 @@ class Footer extends Component<FooterProps, FooterState> {
 					name: '首页',
 					pathName: '/',
 					url: './images/home.svg',
-					url_ed: './images/home_ed.svg'
+					urled: './images/home_ed.svg'
 				},
 				{
 					name: '发表',
 					pathName: '/publish',
 					url: './images/publish.svg',
-					url_ed: './images/publish_ed.svg'
+					urled: './images/publish_ed.svg'
 				},
 				{
 					name: '我的',
 					pathName: '/center/my',
 					url: './images/my.svg',
-					url_ed: './images/my_ed.svg'
+					urled: './images/my_ed.svg'
 				}
 			]
 		};
 	}
-	render() {
+	public render() {
 		return (
 			<footer className="nav-footer">
 				{this.state.list.map((i) => {
@@ -60,7 +60,7 @@ class Footer extends Component<FooterProps, FooterState> {
 								src={
 									i.pathName === this.props.pathName
 										? require(`${i.url}`)
-										: require(`${i.url_ed}`)
+										: require(`${i.urled}`)
 								}
 								alt="icon"
 							/>

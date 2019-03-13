@@ -7,7 +7,7 @@ import Publish from '../views/publish';
 import CenterMy from '../views/center/center-my';
 
 class BaseRouter extends Component {
-	render() {
+	public render() {
 		return (
 			<Router basename="/">
 				<Switch>
