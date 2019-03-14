@@ -3,3 +3,4 @@ src/.next/**
 build/**
 src/serviceWorker.ts
 src/App.test.tsx
+config-overrides.js
