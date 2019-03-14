@@ -61,7 +61,7 @@
 	},
 	"lint-staged": {
 		"src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-			"prettier --single-quote --write",
+			"npm run lint",
 			"git add"
 		]
 	}
