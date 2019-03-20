@@ -1,41 +1,27 @@
 {
   "compilerOptions": {
-    "outDir": "./build/",
-    "experimentalDecorators": true,
-    "allowJs": true,
-    "allowSyntheticDefaultImports": true,
-    "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "preserveConstEnums": true,
-    "removeComments": false,
-    "skipLibCheck": true,
-    "esModuleInterop": true,
-    "sourceMap": false,
-    "strict": true,
-    "target": "esnext",
-    "types": [
-      "react",
-      "react-dom"
-    ],
-    "typeRoots": [
-      "../types"
-    ],
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "isolatedModules": true
-  },
-  "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
-  ]
+      "experimentalDecorators": true,
+      "allowJs": true,
+      "allowSyntheticDefaultImports": true,
+      "baseUrl": "./src",
+      "jsx": "react",
+      "lib": ["dom", "es2017"],
+      "module": "esnext",
+      "moduleResolution": "node",
+      "noEmit": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "preserveConstEnums": true,
+      "removeComments": false,
+      "skipLibCheck": true,
+      "esModuleInterop": true,
+      "sourceMap": false,
+      "strict": true,
+      "target": "esnext",
+      "types": ["react"],
+      "typeRoots": ["../types"],
+      "paths": {
+          "@src/*": ["./*"]
+      }
+  }
 }
