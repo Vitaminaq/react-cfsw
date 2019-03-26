@@ -1,5 +1,6 @@
 node_modules/**
 src/.next/**
-dist/**
+build/**
 src/serviceWorker.ts
 src/App.test.tsx
+config-overrides.js

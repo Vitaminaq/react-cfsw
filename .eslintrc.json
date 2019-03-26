@@ -17,13 +17,8 @@
 		},
 		"ecmaVersion": 2018
 	},
-	"extends": [
-		"typescript",
-		"typescript/react",
-		"typescript/prettier",
-		"plugin:prettier/recommended"
-	],
-	"plugins": ["prettier"],
+	"extends": ["typescript", "typescript/react", "typescript/prettier"],
+	"plugins": ["prettier", "typescript"],
 	"rules": {
 		"prettier/prettier": [
 			"error",
@@ -39,7 +34,9 @@
 		"typescript/no-use-before-define": "off",
 		"react/jsx-filename-extension": ["off"],
 		"explicit-function-return-type": "off",
-		"typescript/explicit-function-return-type": ["off"],
+		"typescript/explicit-function-return-type": 0,
+		"@typescript-eslint/explicit-function-return-type": 0,
+		"@typescript-eslint/no-explicit-any": 0,
 		"no-console": "off",
 		"typescript/no-explicit-any": "off"
 	}

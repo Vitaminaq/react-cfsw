@@ -20,10 +20,10 @@ interface ScrollerProps {
 }
 
 class Scroller extends Component<ScrollerProps, any> {
-	constructor(props: ScrollerProps) {
+	public constructor(props: ScrollerProps) {
 		super(props);
 	}
-	render() {
+	public render() {
 		const {
 			pullUpStatus,
 			pullDownStatus,

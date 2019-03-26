@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+<<<<<<< HEAD
+=======
+    "outDir": "./build/",
+>>>>>>> a8b44d7aa42033b02cd5c4beb0d2f64b027978dd
     "experimentalDecorators": true,
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
@@ -32,6 +36,13 @@
     "isolatedModules": true
   },
   "include": [
+<<<<<<< HEAD
     "src"
+=======
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+>>>>>>> a8b44d7aa42033b02cd5c4beb0d2f64b027978dd
   ]
 }

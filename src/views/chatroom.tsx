@@ -16,14 +16,13 @@ interface ChatRoomProps extends Props<any> {
 
 // PureComponent做了层浅比较，不用手动触发更新
 class ChatRoom extends PureComponent<ChatRoomProps> {
-	constructor(props: ChatRoomProps) {
+	public constructor(props: ChatRoomProps) {
 		super(props);
-		console.log(this);
 	}
-	pullUp() {
+	public pullUp() {
 		this.props.pullUp();
 	}
-	render() {
+	public render() {
 		const { articListState, location, pullUp, history } = this.props;
 		const { pullDownStatus, pullUpStatus } = articListState;
 		return (

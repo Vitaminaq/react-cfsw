@@ -21,23 +21,23 @@ interface UpLoadingProps {
 }
 
 class UpLoading extends Component<UpLoadingProps, any> {
-	timer: any;
-	el: any;
-	constructor(props: UpLoadingProps) {
+	private timer: any;
+	private el: any;
+	public constructor(props: UpLoadingProps) {
 		super(props);
 		this.timer = null;
 		this.el = React.createRef();
 	}
-	async componentDidMount() {
+	public async componentDidMount() {
 		await this.onSee();
 		this.timer = setInterval(this.onSee.bind(this), 500);
 	}
-	async reload() {
+	public async reload() {
 		const { pullUp, params } = this.props;
 		await pullUp(params);
 		this.timer = setInterval(this.onSee, 500);
 	}
-	async onSee() {
+	public async onSee() {
 		const { pullUpStatus, pullUp, params } = this.props;
 		let isSee = inview(this.el.current, {});
 		if (
@@ -52,10 +52,10 @@ class UpLoading extends Component<UpLoadingProps, any> {
 			clearInterval(this.timer);
 		}
 	}
-	componentWillUnmount() {
+	public componentWillUnmount() {
 		clearInterval(this.timer);
 	}
-	render() {
+	public render() {
 		const { pullUpStatus } = this.props;
 		let dom = null;
 		if (pullUpStatus === 'done') {

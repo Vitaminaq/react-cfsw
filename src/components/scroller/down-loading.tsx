@@ -16,10 +16,10 @@ interface ScrollerProps {
 }
 
 class DownLoading extends Component<any, any> {
-	constructor(props: ScrollerProps) {
+	public constructor(props: ScrollerProps) {
 		super(props);
 	}
-	render() {
+	public render() {
 		return <div>123</div>;
 	}
 }
