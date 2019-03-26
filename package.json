@@ -2,12 +2,15 @@
   "scripts": {
     "dev": "nodemon",
     "build": "next build && tsc && tsc --project tsconfig.server.json",
-    "start": "cross-env NODE_ENV=production node .next/server"
+    "start": "cross-env NODE_ENV=production node .next/server",
+    "remove": "rm -rf node_modules package-lock.json yarn.lock && npm install"
   },
   "dependencies": {
     "@zeit/next-typescript": "^1.1.1",
     "express": "^4.16.4",
+    "ip": "^1.1.5",
     "next": "^8.0.3",
+    "next-routes": "^1.4.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   },
@@ -19,6 +22,7 @@
     "@types/node": "^11.11.3",
     "@types/react": "^16.8.8",
     "@types/react-dom": "^16.8.3",
+    "@types/styled-jsx": "^2.2.8",
     "core-js": "^2.6.5",
     "cross-env": "^5.2.0",
     "nodemon": "^1.18.10",

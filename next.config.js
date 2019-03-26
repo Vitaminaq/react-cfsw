@@ -6,7 +6,7 @@ module.exports = withTypescript({
   useFileSystemPublicRoutes: false,
   pageExtensions: ["jsx", "js", "ts", "tsx"],
   // 相对于page目录生成打包文件
-  distDir: "../dist/src/.next",
+  distDir: "../dist/.next",
   webpack(config, options) {
     config.resolve = {
       extensions: [".js", ".jsx", ".json", ".ts", ".tsx"],

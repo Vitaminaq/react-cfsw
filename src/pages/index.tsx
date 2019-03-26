@@ -1,15 +1,15 @@
 import React from "react";
-import Link from "next/link";
+import { Link } from "@src/router/routes";
 
 export default () => (
   <ul>
     <li>
-      <Link href="/a" as="/a">
+      <Link route="a" params={{ slug: "hello-world" }}>
         <a>a</a>
       </Link>
     </li>
     <li>
-      <Link href="/b" as="/b">
+      <Link route="b" params={{ slug: "hello-world" }}>
         <a>b</a>
       </Link>
     </li>
