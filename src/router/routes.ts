@@ -5,10 +5,16 @@ import { Registry, Router, LinkProps } from "next-routes";
 const routes: Registry = require("next-routes")();
 import { ComponentType } from "react";
 
-const routeList = [
-  { name: "index", pattern: "/", page: "./index" },
-  { name: "a", pattern: "/a", page: "./a" },
-  { name: "b", pattern: "/b", page: "./b" }
+export interface RouteOptions {
+  name: string;
+  pattern: string;
+  page: string;
+}
+const routeList: RouteOptions[] = [
+  { name: "index", pattern: "/", page: "index" },
+  { name: "a", pattern: "/a", page: "a" },
+  { name: "b", pattern: "/b", page: "b" },
+  { name: "test-a", pattern: "/test/a", page: "test/a" }
 ];
 
 routeList.forEach(item => {

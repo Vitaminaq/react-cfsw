@@ -1,17 +1,19 @@
-import React from "react";
+import React, { PureComponent } from "react";
 import { Link } from "@src/router/routes";
 
-export default () => (
-  <ul>
-    <li>
-      <Link route="a" params={{ slug: "hello-world" }}>
-        <a>a</a>
-      </Link>
-    </li>
-    <li>
-      <Link route="b" params={{ slug: "hello-world" }}>
-        <a>b</a>
-      </Link>
-    </li>
-  </ul>
-);
+class Home extends PureComponent<any, any> {
+  render() {
+    return (
+      <div>
+        <Link route="a">
+          <a>a</a>
+        </Link>
+        <Link route="b">
+          <a>b</a>
+        </Link>
+      </div>
+    );
+  }
+}
+
+export default Home;

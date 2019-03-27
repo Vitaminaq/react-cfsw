@@ -1,10 +1,8 @@
 import * as React from "react";
 import Document, { Head, Main, NextScript } from "next/document";
-import Index from "./index";
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx: any) {
-    console.log(ctx, ">>>>>>>>>>>>>>>>>>>>>>>>>>>");
+  public static async getInitialProps(ctx: any) {
     const initialProps = await Document.getInitialProps(ctx);
     return { ...initialProps };
   }
@@ -12,8 +10,11 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>cfsw</title>
           <meta charSet="utf-8" />
+          <meta
+            name="keywords"
+            content="Followme,外汇社区,外汇交易,外汇平台,外汇投资"
+          />
           <meta
             name="viewport"
             content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1"
@@ -22,10 +23,6 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <React.Fragment>
-            foiewkfpdosfkpdosfkpdskfdp
-            <Index />
-          </React.Fragment>
         </body>
       </html>
     );
