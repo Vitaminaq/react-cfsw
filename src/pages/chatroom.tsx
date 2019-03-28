@@ -16,6 +16,13 @@ interface ChatRoomProps extends Props<any> {
 
 // PureComponent做了层浅比较，不用手动触发更新
 class ChatRoom extends PureComponent<ChatRoomProps> {
+  public static async getInitialProps() {
+    pullUp({ limit: 10, page: 0 });
+    return;
+  }
+  public $setTitle() {
+    return "test";
+  }
   public constructor(props: ChatRoomProps) {
     super(props);
   }

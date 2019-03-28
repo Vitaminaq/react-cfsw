@@ -11,10 +11,9 @@ export interface RouteOptions {
   page: string;
 }
 const routeList: RouteOptions[] = [
-  { name: "index", pattern: "/", page: "index" },
-  { name: "a", pattern: "/a", page: "a" },
-  { name: "b", pattern: "/b", page: "b" },
-  { name: "chatroom", pattern: "/chatroom", page: "chatroom" }
+  { name: "chatroom", pattern: "/", page: "chatroom" },
+  { name: "publish", pattern: "/publish", page: "publish" },
+  { name: "center-my", pattern: "/center/my", page: "center/center-my" }
 ];
 
 routeList.forEach(item => {
