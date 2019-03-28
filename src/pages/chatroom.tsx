@@ -2,6 +2,11 @@ import React, { PureComponent, Props } from "react";
 import { connect } from "react-redux";
 import { pullUp } from "../store/modules/chatroom/action";
 import { BaseArticListState } from "../store/modules/chatroom/reducer";
+import LogoHeader from "../components/header/logo-header";
+import Footer from "../components/footer/footer";
+import ArticList from "../components/chat-room/artic-list";
+import Scroller from "../components/scroller/scroller";
+
 interface ChatRoomProps extends Props<any> {
   pullUp: any;
   articListState: BaseArticListState;
@@ -18,7 +23,21 @@ class ChatRoom extends PureComponent<ChatRoomProps> {
     this.props.pullUp();
   }
   public render() {
-    return <div>......fdsfdsfds</div>;
+    const { articListState, pullUp, history } = this.props;
+    const { pullDownStatus, pullUpStatus } = articListState;
+    return (
+      <div>
+        <LogoHeader />
+        <Scroller
+          pullDownStatus={pullDownStatus}
+          pullUpStatus={pullUpStatus}
+          listDom={<ArticList history={history} />}
+          pullUp={pullUp}
+          params={articListState.params}
+        />
+        <Footer pathName={""} />
+      </div>
+    );
   }
 }
 

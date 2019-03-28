@@ -4,10 +4,10 @@ import routes from "../src/router/routes";
 const address = require("ip").address();
 const conf = require("../next.config");
 // import { createStore } from "redux";
-import { Provider } from "react-redux";
-import store from "../src/store/index";
-import { renderToString } from "react-dom/server";
-import App from "../src/pages/_app";
+// import { Provider } from "react-redux";
+// import store from "../src/store/index";
+// import { renderToString } from "react-dom/server";
+// import App from "../src/pages/_app";
 
 const dev = process.env.NODE_ENV !== "production";
 const port: string = process.env.PORT || "3000";
@@ -27,11 +27,9 @@ app.prepare().then(() => {
   server.get("*", (req: Request, res: Response) => {
     return handle(req, res);
   });
-  const html = renderToString(
-    `<Provider store={store}>
-    <App />
-  </Provider>`
-  );
+  // const html = renderToString(
+  //   new App()
+  // );
   server.listen(port, (err: any) => {
     if (err) throw err;
     console.log("App running at:");

@@ -14,7 +14,7 @@ const routeList: RouteOptions[] = [
   { name: "index", pattern: "/", page: "index" },
   { name: "a", pattern: "/a", page: "a" },
   { name: "b", pattern: "/b", page: "b" },
-  { name: "test-a", pattern: "/test/a", page: "test/a" }
+  { name: "chatroom", pattern: "/chatroom", page: "chatroom" }
 ];
 
 routeList.forEach(item => {
